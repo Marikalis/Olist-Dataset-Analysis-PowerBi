@@ -11,6 +11,33 @@ Analysis of e-commerce data indicates a noticeable upward trend in Brazilian onl
 
 Monday and Tuesday: These days emerge as the most popular for online shopping among Brazilian customers. This could be attributed to several factors, including the start of the workweek when individuals may have more time to browse and make purchases, as well as the potential influence of promotional offers or discounts typically associated with the beginning of the week.
 
+> **Custom Columns for Order Analysis**
+> Total Orders by Weekday
+> To categorize orders by weekdays, we use the DayName column. This column is populated by mapping the DayOfWeek value to its corresponding weekday name using the SWITCH function. The mapping is as follows:
+> 
+> ```
+> DayName = SWITCH([DayOfWeek], 
+>     1, "Monday",
+>     2, "Tuesday",
+>     3, "Wednesday",
+>     4, "Thursday",
+>     5, "Friday",
+>     6, "Saturday",
+>     7, "Sunday"
+> )
+> ```
+> Total Orders by Time of Day
+> Similarly, to classify orders by the time of day they were placed, we use the SortOrder column. This categorization helps in understanding customer preferences throughout the day. The SortOrder value is determined using the following SWITCH function:
+> 
+> ```
+> SortOrder = SWITCH([TimeOfDay],
+>     1, "Morning",
+>     2, "Afternoon",
+>     3, "Evening",
+>     4, "Night"
+> )
+> ```
+
 ### Time of Day for Online Purchasing:
 
 Afternoon: The afternoon is the preferred time for online shopping among Brazilian customers. This timeframe typically spans from early afternoon to early evening. This preference may be influenced by factors such as convenience, availability of leisure time, and access to digital devices during breaks from work or other activities.
